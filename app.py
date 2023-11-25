@@ -1,4 +1,5 @@
 from restservice import RestClient
+from models import *
 import json
 
 
@@ -7,7 +8,9 @@ def main():
     
     resp = serv.get("/req")
     
-    print(json.dumps(resp, indent=4))
+    myEvent = Event.from_dict(resp)
+    
+    print(myEvent)
 
 if __name__ == '__main__':
     main()
